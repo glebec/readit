@@ -1,27 +1,42 @@
-import React, { Component } from 'react';
-import store from '../app/store';
+// import React, { Component } from 'react';
+// import store from '../app/store';
 import Posts from './posts.component';
+import { connect } from 'react-redux';
 
-export default class PostsContainer extends Component {
+const mapStateToProps = state => ({
+	posts: state.posts
+});
 
-	constructor (props) {
-		super(props);
-		this.state = store.getState();
-	}
+export default connect(mapStateToProps)(Posts);
 
-	componentDidMount () {
-		this.unsubscribe = store.subscribe(() => {
-			this.setState(store.getState());
-		});
-	}
+// const connectorFn = connect(mapStateToProps);
 
-	componentWillUnmount () {
-		this.unsubscribe();
-	}
+// const connectedComponent = connectorFn(Posts);
 
-	render () {
-		const posts = this.state.posts;
-		return <Posts posts={posts} />;
-	}
+// export default connectedComponent;
 
-}
+
+// export default class PostsContainer extends Component {
+
+// 	constructor (props) {
+// 		super(props);
+// 		this.state = store.getState();
+// 	}
+
+// 	componentDidMount () {
+// 		this.unsubscribe = store.subscribe(() => {
+// 			this.setState(store.getState());
+// 		});
+// 	}
+
+// 	componentWillUnmount () {
+// 		this.unsubscribe();
+// 	}
+
+// 	render () {
+// 		const posts = this.state.posts;
+// 		return <Posts posts={posts} />;
+// 	}
+
+// }
+

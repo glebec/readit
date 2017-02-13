@@ -3,7 +3,7 @@ import React from 'react';
 const boxed = {
 	border: '1px solid',
 	padding: '10px'
-}
+};
 
 const Post = props => {
 

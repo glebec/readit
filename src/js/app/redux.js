@@ -74,7 +74,7 @@ const rootReducer = (oldState = initialState, action) => {
 				posts: oldState.posts.map(post => {
 					return post !== action.post ?
 					post :
-					Object.assign({}, post, { score: post.score - 1 })
+					Object.assign({}, post, { score: post.score - 1 });
 				})
 			});
 		default:
