@@ -1,18 +1,21 @@
 import React from 'react';
-import { Router, Route, hashHistory, IndexRedirect } from 'react-router';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import App from './app';
 import PostsContainer from '../posts';
 import PostContainer from '../post';
 import Write from '../write';
 
 const Routes = () => (
-	<Router history={hashHistory}>
-		<Route path="/" component={App}>
-			<IndexRedirect to="/posts" />
-			<Route path="/posts" component={PostsContainer} />
-			<Route path="/posts/:id" component={PostContainer} />
-			<Route path="/write" component={Write} />
-		</Route>
+	<Router>
+		<div>
+			<App />
+			<Switch>
+				<Route exact path="/posts" component={PostsContainer} />
+				<Route exact path="/posts/:id" component={PostContainer} />
+				<Route exact path="/write" component={Write} />
+				<Redirect to="/posts" />
+			</Switch>
+		</div>
 	</Router>
 );
 

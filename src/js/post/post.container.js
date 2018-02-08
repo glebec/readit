@@ -8,7 +8,7 @@ export default class PostContainer extends Component {
 	constructor (props) {
 		super(props);
 		this.state = store.getState();
-		this.id = +this.props.params.id;
+		this.id = +this.props.match.params.id;
 	}
 
 	componentDidMount () {
@@ -21,11 +21,11 @@ export default class PostContainer extends Component {
 		this.unsubscribe();
 	}
 
-	submitUpvote (post) {
+	submitUpvote (post) { // eslint-disable-line class-methods-use-this
 		store.dispatch(upvotePost(post));
 	}
 
-	submitDownvote (post) {
+	submitDownvote (post) { // eslint-disable-line class-methods-use-this
 		store.dispatch(downvotePost(post));
 	}
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const Posts = props => (
 	<table className="pure-table pure-table-horizontal">
