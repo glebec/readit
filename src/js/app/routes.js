@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
-import App from './app';
+import Header from './header';
 import PostsContainer from '../posts';
 import PostContainer from '../post';
 import Write from '../write';
@@ -8,7 +8,7 @@ import Write from '../write';
 const Routes = () => (
 	<Router>
 		<div>
-			<App />
+			<Header />
 			<Switch>
 				<Route exact path="/posts" component={PostsContainer} />
 				<Route exact path="/posts/:id" component={PostContainer} />
