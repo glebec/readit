@@ -39,7 +39,7 @@ const initialState = {
 		text: 'Turn to page three-hundred and ninety-four.',
 		score: -3
 	}],
-	nextId: 3
+	nextId: 3 // arguably this would be outside of the state, in an id factory
 };
 
 const rootReducer = (oldState = initialState, action) => {
