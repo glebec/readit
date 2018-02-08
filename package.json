@@ -15,6 +15,7 @@
 	"author": "Gabriel Lebec <glebec@gmail.com> (https://github.com/glebec)",
 	"license": "MIT",
 	"devDependencies": {
+		"babel-eslint": "^8.2.1",
 		"eslint": "^3.15.0",
 		"eslint-config-fullstack": "^2.7.0",
 		"eslint-plugin-react": "^6.9.0"

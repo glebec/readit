@@ -44,39 +44,40 @@ const initialState = {
 
 const rootReducer = (oldState = initialState, action) => {
 
-	const newStateWith = newProps => Object.assign({}, oldState, newProps);
-
 	switch (action.type) {
 		case LOGIN:
-			return newStateWith({
-				user: action.user
-			});
+			return { ...oldState, user: action.user };
 		case NEW_POST: {
-			const nextPost = Object.assign({}, action.post, { id: oldState.nextId });
-			return newStateWith({
+			const nextPost = { ...action.post, id: oldState.nextId };
+			return {
+				...oldState,
 				posts: [nextPost, ...oldState.posts],
 				nextId: oldState.nextId + 1
-			});
+			};
 		}
 		case DELETE_POST:
-			return newStateWith({
+			return {
+				...oldState,
 				posts: oldState.posts.filter(post => post !== action.post)
-			});
+			};
 		case UPVOTE_POST:
-			return newStateWith({
+			return {
+				...oldState,
 				posts: oldState.posts.map(post => {
-					if (post !== action.post) return post;
-					return Object.assign({}, post, { score: post.score + 1 });
+					return post !== action.post
+						? post
+						: { ...post, score: post.score + 1 };
 				})
-			});
+			};
 		case DOWNVOTE_POST:
-			return newStateWith({
+			return {
+				...oldState,
 				posts: oldState.posts.map(post => {
-					return post !== action.post ?
-					post :
-					Object.assign({}, post, { score: post.score - 1 })
+					return post !== action.post
+						? post
+						: { ...post, score: post.score - 1 };
 				})
-			});
+			};
 		default:
 			return oldState;
 	}

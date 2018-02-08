@@ -1,5 +1,6 @@
 {
 	"extends": "fullstack",
+	"parser": "babel-eslint",
 	"rules": {
 		"semi": 1,
 		"react/prop-types": 0
