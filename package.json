@@ -8,7 +8,7 @@
 		"reset": "rimraf build",
 		"build": "npm run reset && webpack",
 		"build:dev": "npm run build -- -w",
-		"serve": "static-server ./build",
+		"serve": "static-server ./build --not-found src/404.html",
 		"dev": "npm run build:dev & npm run serve",
 		"start": "npm run dev"
 	},
